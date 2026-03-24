@@ -12,13 +12,10 @@
   --font-sans: 'Mona Sans Variable', Inter, Verdana, system-ui, sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 body {
-  background-color: #002F34;
-  color: #F1F1DE;
+  background-color: var(--color-firefly);
+  color: var(--color-loafer);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
