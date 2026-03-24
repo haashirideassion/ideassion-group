@@ -1,3 +1,4 @@
+import React from "react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { Company } from "@/data/companies";
@@ -6,7 +7,22 @@ interface Props {
   company: Company;
 }
 
+// SVG logos have their own colours and work natively on dark backgrounds.
+// PNG logos (dark-on-white or colourful-on-white) need CSS blend tricks.
+function getLogoStyle(logoPath: string): React.CSSProperties {
+  if (logoPath.endsWith(".svg")) return {};
+  // For dark-on-white logos (Ideassion, IITT): invert makes dark → white; bg stays black → screens away.
+  // For colourful logos (Dizrupt, Triton): hue-rotate(180°) undoes the hue-shift from invert, preserving colour.
+  return {
+    filter: "invert(1) hue-rotate(180deg) brightness(1.6)",
+    mixBlendMode: "screen" as const,
+  };
+}
+
 export default function CompanyCard({ company }: Props) {
+  const isSvg = company.logoPath.endsWith(".svg");
+  const logoStyle = getLogoStyle(company.logoPath);
+
   return (
     <div
       className="group flex flex-col rounded-2xl border border-white/10 transition-all duration-300 hover:border-vivid-cyan/40 overflow-hidden"
@@ -16,19 +32,16 @@ export default function CompanyCard({ company }: Props) {
         WebkitBackdropFilter: "blur(12px)",
       }}
     >
-      {/* Logo container — uniform white box */}
-      <div className="mx-4 mt-4 rounded-xl bg-white flex items-center justify-center h-20 p-3 overflow-hidden shrink-0">
+      {/* Logo container — no background, logos render via blend mode */}
+      <div className="mx-4 mt-5 flex items-center justify-center h-16 overflow-hidden shrink-0">
         {company.isTriton ? (
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2.5" style={logoStyle}>
             <img
               src={company.logoPath}
               alt=""
               className="h-10 w-auto object-contain"
             />
-            <span
-              className="font-extrabold text-lg tracking-wider"
-              style={{ color: "var(--color-firefly)" }}
-            >
+            <span className="font-extrabold text-lg tracking-wider text-white">
               TRITON LABS
             </span>
           </div>
@@ -36,7 +49,8 @@ export default function CompanyCard({ company }: Props) {
           <img
             src={company.logoPath}
             alt={company.name}
-            className="h-full w-full object-contain"
+            className={isSvg ? "h-10 w-auto object-contain" : "h-full w-auto max-w-full object-contain"}
+            style={logoStyle}
           />
         )}
       </div>

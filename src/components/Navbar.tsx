@@ -10,17 +10,16 @@ export default function Navbar() {
         WebkitBackdropFilter: "blur(12px)",
       }}
     >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center gap-3">
-        <div className="bg-white rounded-lg h-8 w-8 flex items-center justify-center shrink-0 overflow-hidden">
-          <img
-            src={ideassionLogo}
-            alt="Ideassion"
-            className="h-full w-full object-contain"
-          />
-        </div>
-        <span className="text-white font-semibold text-base tracking-tight">
-          Ideassion Group
-        </span>
+      <div className="h-16 flex items-center justify-center">
+        <img
+          src={ideassionLogo}
+          alt="Ideassion"
+          className="h-11 w-auto object-contain"
+          style={{
+            filter: "invert(1) brightness(2.5)",
+            mixBlendMode: "screen",
+          }}
+        />
       </div>
     </header>
   );
