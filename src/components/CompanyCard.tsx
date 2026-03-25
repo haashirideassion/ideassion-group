@@ -7,12 +7,12 @@ interface Props {
   company: Company;
 }
 
-// SVG logos have their own colours and work natively on dark backgrounds.
-// PNG logos (dark-on-white or colourful-on-white) need CSS blend tricks.
-function getLogoStyle(logoPath: string): React.CSSProperties {
-  if (logoPath.endsWith(".svg")) return {};
-  // For dark-on-white logos (Ideassion, IITT): invert makes dark → white; bg stays black → screens away.
-  // For colourful logos (Dizrupt, Triton): hue-rotate(180°) undoes the hue-shift from invert, preserving colour.
+// SVG logos and darkBgReady logos work natively on dark backgrounds.
+// Other PNGs (dark-on-white or colourful-on-white) need CSS blend tricks.
+function getLogoStyle(company: Company): React.CSSProperties {
+  if (company.logoPath.endsWith(".svg")) return {};
+  if (company.darkBgReady) return {};
+  // invert: dark→light, white-bg→black; hue-rotate(180°) re-normalises hue; screen makes black bg vanish.
   return {
     filter: "invert(1) hue-rotate(180deg) brightness(1.6)",
     mixBlendMode: "screen" as const,
@@ -21,7 +21,7 @@ function getLogoStyle(logoPath: string): React.CSSProperties {
 
 export default function CompanyCard({ company }: Props) {
   const isSvg = company.logoPath.endsWith(".svg");
-  const logoStyle = getLogoStyle(company.logoPath);
+  const logoStyle = getLogoStyle(company);
 
   return (
     <div

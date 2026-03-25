@@ -5,6 +5,8 @@ export interface Company {
   url: string;
   logoPath: string;
   isTriton?: boolean;
+  /** Logo is already designed for dark backgrounds (white/light artwork, transparent bg) */
+  darkBgReady?: boolean;
 }
 
 export const companies: Company[] = [
@@ -50,5 +52,20 @@ export const companies: Company[] = [
     url: "https://www.tritonlabs.in",
     logoPath: "/logos/triton.png",
     isTriton: true,
+  },
+  {
+    name: "OffisBay",
+    tagline: "Smarter Workplaces, Seamless Operations",
+    description: "Integrated facility management and workplace solutions — from smart office infrastructure to operational services that help businesses run better.",
+    url: "https://offisbay.com",
+    logoPath: "/logos/offisbay.png",
+    darkBgReady: true,
+  },
+  {
+    name: "SapientHR",
+    tagline: "People-First HR Solutions",
+    description: "End-to-end human resource management services — payroll, compliance, talent acquisition, and HR technology built to scale with your business.",
+    url: "https://sapienthr.com",
+    logoPath: "/logos/sapienthr.png",
   },
 ];

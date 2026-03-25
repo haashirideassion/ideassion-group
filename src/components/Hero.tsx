@@ -1,4 +1,5 @@
 import { ChevronDown } from "lucide-react";
+import ideassionLogo from "/logos/ideassion.png";
 
 export default function Hero() {
   return (
@@ -34,18 +35,29 @@ export default function Hero() {
 
       {/* Foreground content */}
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-3xl">
-        <p
-          className="text-sm font-semibold tracking-[0.3em] uppercase mb-6"
+        {/* "The [logo] Group" eyebrow */}
+        <div
+          className="flex items-center gap-2 mb-6"
           style={{ color: "var(--color-spring-green)" }}
         >
-          The Ideassion Group
-        </p>
+          <span className="text-sm font-semibold tracking-[0.3em] uppercase">The</span>
+          <img
+            src={ideassionLogo}
+            alt="Ideassion"
+            className="h-5 w-auto object-contain"
+            style={{
+              filter: "invert(1) brightness(2.5)",
+              mixBlendMode: "screen",
+            }}
+          />
+          <span className="text-sm font-semibold tracking-[0.3em] uppercase">Group</span>
+        </div>
 
         <h1
           className="text-5xl md:text-7xl font-extrabold text-white leading-[1.05] mb-6"
           style={{ letterSpacing: "-0.02em" }}
         >
-          Intelligence.
+          Powering Business
           <br />
           <span
             style={{
@@ -56,16 +68,19 @@ export default function Hero() {
               backgroundClip: "text",
             }}
           >
-            Delivered.
+            Transformation
           </span>
+          <br />
+          <span className="text-4xl md:text-5xl font-bold">through Integrated Capabilities.</span>
         </h1>
 
         <p
           className="text-lg md:text-xl leading-relaxed max-w-2xl"
           style={{ color: "rgba(241,241,222,0.7)" }}
         >
-          A family of companies delivering intelligence across technology,
-          talent, creativity, and industry.
+          A diversified business group enabling organizations to build, scale, and transform
+          through an integrated ecosystem spanning technology, talent, infrastructure, and
+          business services.
         </p>
       </div>
 
