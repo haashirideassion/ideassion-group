@@ -22,7 +22,7 @@ export default function CompanyCard({ company }: Props) {
       <div
         className="mx-4 mt-5 flex items-center justify-center p-2 rounded-lg h-16 overflow-hidden shrink-0"
         style={{
-          backgroundColor: company.darkBgReady ? "var(--color-firefly)" : "#ffffff",
+          backgroundColor: company.darkBgReady ? "transparent" : "#ffffff",
         }}
       >
         {company.logoPath ? (

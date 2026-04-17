@@ -30,6 +30,7 @@ export const companies: Company[] = [
     description: "Full-service digital marketing and creative agency — branding, web development, social media, print, and event management.",
     url: "https://www.cruxcreations.com",
     logoPath: "/logos/crux.svg",
+    darkBgReady: true,
   },
   {
     name: "Dizrupt",

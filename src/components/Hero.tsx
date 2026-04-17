@@ -46,7 +46,7 @@ export default function Hero() {
           <img
             src={ideassionGroupLogo}
             alt="Ideassion Group"
-            className="h-6 w-auto object-contain"
+            className="h-8 w-auto object-contain"
             style={{
               filter: "invert(1) brightness(2.5)",
               mixBlendMode: "screen",
