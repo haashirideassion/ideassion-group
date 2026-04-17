@@ -33,13 +33,6 @@ export const companies: Company[] = [
     darkBgReady: true,
   },
   {
-    name: "Dizrupt",
-    tagline: "Ship Software That Works. This Week.",
-    description: "Rapid software delivery studio focused on getting reliable products to market fast — without the delays.",
-    url: "https://dizrupt.vercel.app",
-    logoPath: "/logos/dizrupt.png",
-  },
-  {
     name: "Coverton",
     tagline: "Insuring Business, Ensuring Success",
     description: "Insurance broking intermediary bridging businesses and individuals with the right cover — corporate, retail, and industry-specific.",
