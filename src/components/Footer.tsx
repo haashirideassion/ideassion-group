@@ -1,4 +1,4 @@
-import ideassionLogo from "/logos/ideassion.png";
+import ideassionGroupLogo from "/logos/ideassion-group.png";
 
 export default function Footer() {
   return (
@@ -8,8 +8,8 @@ export default function Footer() {
     >
       <div className="flex flex-col items-center gap-4">
         <img
-          src={ideassionLogo}
-          alt="Ideassion"
+          src={ideassionGroupLogo}
+          alt="Ideassion Group"
           className="h-9 w-auto object-contain"
           style={{
             filter: "invert(1) brightness(2.5)",

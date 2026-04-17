@@ -19,12 +19,6 @@ export default function CompaniesGrid() {
           <h2 className="text-white font-bold text-4xl md:text-5xl leading-tight mb-4">
             The Ideassion Family
           </h2>
-          <p
-            className="text-lg max-w-xl mx-auto"
-            style={{ color: "rgba(241,241,222,0.6)" }}
-          >
-            Six ventures. One shared mission.
-          </p>
         </div>
 
         {/* Cards grid */}

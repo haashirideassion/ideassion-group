@@ -1,5 +1,5 @@
 import { ChevronDown } from "lucide-react";
-import ideassionLogo from "/logos/ideassion.png";
+import ideassionGroupLogo from "/logos/ideassion-group.png";
 
 export default function Hero() {
   return (
@@ -17,9 +17,9 @@ export default function Hero() {
         }}
       />
 
-      {/* Background: oversized Ideassion butterfly watermark */}
+      {/* Background: oversized Ideassion Group watermark */}
       <img
-        src="/logos/ideassion.png"
+        src="/logos/ideassion-group.png"
         alt=""
         aria-hidden="true"
         className="absolute pointer-events-none select-none"
@@ -35,22 +35,23 @@ export default function Hero() {
 
       {/* Foreground content */}
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-3xl">
-        {/* "The [logo] Group" eyebrow */}
-        <div
-          className="flex items-center gap-2 mb-6"
-          style={{ color: "var(--color-spring-green)" }}
-        >
-          <span className="text-sm font-semibold tracking-[0.3em] uppercase">The</span>
+        {/* "The [Ideassion Group logo]" eyebrow */}
+        <div className="flex items-center gap-2.5 mb-6">
+          <span
+            className="text-sm font-semibold tracking-[0.3em] uppercase"
+            style={{ color: "var(--color-spring-green)" }}
+          >
+            The
+          </span>
           <img
-            src={ideassionLogo}
-            alt="Ideassion"
-            className="h-5 w-auto object-contain"
+            src={ideassionGroupLogo}
+            alt="Ideassion Group"
+            className="h-6 w-auto object-contain"
             style={{
               filter: "invert(1) brightness(2.5)",
               mixBlendMode: "screen",
             }}
           />
-          <span className="text-sm font-semibold tracking-[0.3em] uppercase">Group</span>
         </div>
 
         <h1

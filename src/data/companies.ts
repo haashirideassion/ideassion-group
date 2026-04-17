@@ -5,7 +5,7 @@ export interface Company {
   url: string;
   logoPath: string;
   isTriton?: boolean;
-  /** Logo is already designed for dark backgrounds (white/light artwork, transparent bg) */
+  /** Logo is designed for dark backgrounds (white/light artwork on transparent bg) */
   darkBgReady?: boolean;
 }
 
@@ -67,5 +67,19 @@ export const companies: Company[] = [
     description: "End-to-end human resource management services — payroll, compliance, talent acquisition, and HR technology built to scale with your business.",
     url: "https://sapienthr.com",
     logoPath: "/logos/sapienthr.png",
+  },
+  {
+    name: "Nilaithal",
+    tagline: "Empowering Tomorrow, Sustainably Today",
+    description: "Building sustainable and scalable solutions for a better tomorrow — technology, infrastructure, and growth strategies that create lasting impact.",
+    url: "https://nilaithal.com",
+    logoPath: "/logos/nilaithal.png",
+  },
+  {
+    name: "Unicorn Diversity",
+    tagline: "Fostering Inclusive Workplaces",
+    description: "Diversity, equity, and inclusion consultancy helping organisations build accessible cultures, diverse talent pipelines, and equitable workplace practices.",
+    url: "https://www.uniorn.com",
+    logoPath: "/logos/unicorn.png",
   },
 ];

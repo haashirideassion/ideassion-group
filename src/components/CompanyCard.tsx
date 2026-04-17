@@ -1,4 +1,3 @@
-import React from "react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { Company } from "@/data/companies";
@@ -7,21 +6,8 @@ interface Props {
   company: Company;
 }
 
-// SVG logos and darkBgReady logos work natively on dark backgrounds.
-// Other PNGs (dark-on-white or colourful-on-white) need CSS blend tricks.
-function getLogoStyle(company: Company): React.CSSProperties {
-  if (company.logoPath.endsWith(".svg")) return {};
-  if (company.darkBgReady) return {};
-  // invert: dark→light, white-bg→black; hue-rotate(180°) re-normalises hue; screen makes black bg vanish.
-  return {
-    filter: "invert(1) hue-rotate(180deg) brightness(1.6)",
-    mixBlendMode: "screen" as const,
-  };
-}
-
 export default function CompanyCard({ company }: Props) {
-  const isSvg = company.logoPath.endsWith(".svg");
-  const logoStyle = getLogoStyle(company);
+  const isSvg = company.logoPath?.endsWith(".svg");
 
   return (
     <div
@@ -32,26 +18,36 @@ export default function CompanyCard({ company }: Props) {
         WebkitBackdropFilter: "blur(12px)",
       }}
     >
-      {/* Logo container — no background, logos render via blend mode */}
-      <div className="mx-4 mt-5 flex items-center justify-center h-16 overflow-hidden shrink-0">
-        {company.isTriton ? (
-          <div className="flex items-center gap-2.5" style={logoStyle}>
+      {/* Logo container — white bg for light logos, dark teal bg for white-artwork logos */}
+      <div
+        className="mx-4 mt-5 flex items-center justify-center p-2 rounded-lg h-16 overflow-hidden shrink-0"
+        style={{
+          backgroundColor: company.darkBgReady ? "var(--color-firefly)" : "#ffffff",
+        }}
+      >
+        {company.logoPath ? (
+          company.isTriton ? (
+            <div className="flex items-center gap-2.5">
+              <img
+                src={company.logoPath}
+                alt=""
+                className="h-10 w-auto object-contain"
+              />
+              <span className="font-extrabold text-lg tracking-wider text-black">
+                TRITON LABS
+              </span>
+            </div>
+          ) : (
             <img
               src={company.logoPath}
-              alt=""
-              className="h-10 w-auto object-contain"
+              alt={company.name}
+              className={isSvg ? "h-10 w-auto object-contain" : "h-full w-auto max-w-full object-contain"}
             />
-            <span className="font-extrabold text-lg tracking-wider text-white">
-              TRITON LABS
-            </span>
-          </div>
+          )
         ) : (
-          <img
-            src={company.logoPath}
-            alt={company.name}
-            className={isSvg ? "h-10 w-auto object-contain" : "h-full w-auto max-w-full object-contain"}
-            style={logoStyle}
-          />
+          <span className="font-extrabold text-xl tracking-wider text-black">
+            {company.name}
+          </span>
         )}
       </div>
 

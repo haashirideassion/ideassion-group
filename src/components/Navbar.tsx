@@ -1,4 +1,4 @@
-import ideassionLogo from "/logos/ideassion.png";
+import ideassionGroupLogo from "/logos/ideassion-group.png";
 
 export default function Navbar() {
   return (
@@ -12,9 +12,9 @@ export default function Navbar() {
     >
       <div className="h-16 flex items-center justify-center">
         <img
-          src={ideassionLogo}
-          alt="Ideassion"
-          className="h-11 w-auto object-contain"
+          src={ideassionGroupLogo}
+          alt="Ideassion Group"
+          className="h-10 w-auto object-contain"
           style={{
             filter: "invert(1) brightness(2.5)",
             mixBlendMode: "screen",
